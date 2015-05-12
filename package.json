@@ -1,0 +1,22 @@
+{
+  "name": "spectingular.configurer",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-shell": "^1.1.2",
+    "jasmine-node": "^1.14.5"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "rewire": "^2.3.3"
+  }
+}
