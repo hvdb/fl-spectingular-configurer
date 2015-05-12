@@ -8,23 +8,23 @@ var configurer;
 /**
  *
  */
-describe('configurer spec', function () {
+describe('Configurer ', function () {
 
     beforeEach(function () {
+
         configurer = rewire('./../tasks/configurer');
         configurer.__set__('__dirname', __dirname);
         configurer.init(grunt);
     });
 
-    it('should get default config', function () {
+    it('default config should be handled correctly', function () {
         var config = configurer.configure();
         expect(config.notLoaded).toBeUndefined();
         expect(config.karma).toBeDefined();
         expect(config.jshint).toBeDefined();
         expect(config.jshint.options.jshintrc).toEqual('.jshintrc');
 
-        expect(grunt.config.get('jshint')).toBeUndefined();
-        configurer.initGruntConfig(config);
+        configurer.initConfig(config);
 
         expect(grunt.config.get('jshint')).toBeDefined();
         expect(grunt.config.get('jshint').options.jshintrc).toEqual('.jshintrc');
@@ -32,11 +32,11 @@ describe('configurer spec', function () {
 
     });
 
-    xit('should set non default config', function () {
+    it('exceptions on the default config should reflect to the grunt config', function () {
 
         var jshint = {
             jshint: {
-                jshintrc: '.jshintrcTest',
+                jshintrc: '.jshintrcTest'
             }
         };
 
@@ -46,13 +46,13 @@ describe('configurer spec', function () {
         expect(config.jshint).toBeDefined();
         expect(config.jshint.options.jshintrc).toEqual('.jshintrcTest');
 
-        expect(grunt.config.get('jshint')).toBeUndefined();
-        configurer.initGruntConfig(config);
+        configurer.initConfig(config);
 
         expect(grunt.config.get('jshint')).toBeDefined();
         expect(grunt.config.get('jshint').options.jshintrc).toEqual('.jshintrcTest');
         expect(grunt.config.get('karma')).toBeDefined();
 
     });
+
 
 });
