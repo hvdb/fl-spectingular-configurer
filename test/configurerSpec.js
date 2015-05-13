@@ -12,8 +12,8 @@ describe('Configurer ', function () {
 
     beforeEach(function () {
 
-        configurer = require('./../tasks/configurer');
-        configurer.init(grunt, __dirname);
+        configurer = require('./../tasks/configurer')(grunt, __dirname);
+
     });
 
     it('default config should be handled correctly', function () {
@@ -23,7 +23,7 @@ describe('Configurer ', function () {
         expect(config.jshint).toBeDefined();
         expect(config.jshint.options.jshintrc).toEqual('.jshintrc');
 
-        configurer.initConfig(config);
+        configurer.init(config);
 
         expect(grunt.config.get('jshint')).toBeDefined();
         expect(grunt.config.get('jshint').options.jshintrc).toEqual('.jshintrc');
@@ -54,7 +54,7 @@ describe('Configurer ', function () {
         expect(config.jshint).toBeDefined();
         expect(config.jshint.options.jshintrc).toEqual('<%= config.paths.config %>/.jshintrc');
 
-        configurer.initConfig(_config, config);
+        configurer.init(_config, config);
 
         expect(grunt.config.get('jshint')).toBeDefined();
         expect(grunt.config.get('jshint').options.jshintrc).toEqual('/tmp/foo/.jshintrc');
@@ -64,8 +64,8 @@ describe('Configurer ', function () {
 
 
     it('default config should be handled correctly even less verbose', function () {
-        configurer.configure();
-        configurer.initConfig();
+        var config = configurer.configure();
+        configurer.init(config);
 
         expect(grunt.config.get('jshint')).toBeDefined();
         expect(grunt.config.get('jshint').options.jshintrc).toEqual('.jshintrc');
