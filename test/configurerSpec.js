@@ -41,7 +41,6 @@ describe('Configurer ', function () {
 
             }
         };
-
         var _config = {
             config: {
                 paths: {
