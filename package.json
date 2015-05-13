@@ -15,8 +15,5 @@
     "grunt": "~0.4.5"
   },
   "author": "",
-  "license": "MIT",
-  "dependencies": {
-    "rewire": "^2.3.3"
-  }
+  "license": "MIT"
 }

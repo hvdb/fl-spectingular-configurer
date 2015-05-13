@@ -12,9 +12,8 @@ describe('Configurer ', function () {
 
     beforeEach(function () {
 
-        configurer = rewire('./../tasks/configurer');
-        configurer.__set__('__dirname', __dirname);
-        configurer.init(grunt);
+        configurer = require('./../tasks/configurer');
+        configurer.init(grunt, __dirname);
     });
 
     it('default config should be handled correctly', function () {
