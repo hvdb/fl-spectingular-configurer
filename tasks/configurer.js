@@ -5,13 +5,15 @@
         path = require('path'),
         Configurer = {},
         grunt,
-        configuration;
+        configuration,
+        dirname;
 
     /** Initialize the configurer, set the grunt object. */
-    Configurer.init = function (_grunt) {
+    Configurer.init = function (_grunt, _dirname) {
         if (typeof _grunt.registerTask !== 'function') {
             throw new Error('invalid grunt object');
         }
+        dirname = _dirname || __dirname;
         grunt = _grunt;
     };
 
@@ -19,9 +21,9 @@
     Configurer.configure = function (options) {
         var _options = options || {};
         var config = {};
-        fs.readdirSync(__dirname + '/include').forEach(function (include) {
+        fs.readdirSync(dirname + '/include').forEach(function (include) {
             var key = include.substring(0, include.lastIndexOf('.')),
-                _config = require(path.resolve(__dirname, 'include', include))(grunt, _options[key]);
+                _config = require(path.resolve(dirname, 'include', include))(grunt, _options[key]);
             if (typeof _config === 'object') {
                 config[key] = _config;
             }
