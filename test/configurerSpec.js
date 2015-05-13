@@ -14,17 +14,10 @@ describe('Configurer ', function () {
 
         configurer = rewire('./../tasks/configurer');
         configurer.__set__('__dirname', __dirname);
-        configurer.init(grunt);
     });
 
     it('default config should be handled correctly', function () {
-        var config = configurer.configure();
-        expect(config.notLoaded).toBeUndefined();
-        expect(config.karma).toBeDefined();
-        expect(config.jshint).toBeDefined();
-        expect(config.jshint.options.jshintrc).toEqual('.jshintrc');
-
-        configurer.initConfig(config);
+        configurer.init(grunt);
 
         expect(grunt.config.get('jshint')).toBeDefined();
         expect(grunt.config.get('jshint').options.jshintrc).toEqual('.jshintrc');
@@ -40,13 +33,7 @@ describe('Configurer ', function () {
             }
         };
 
-        var config = configurer.configure(jshint);
-        expect(config.notLoaded).toBeUndefined();
-        expect(config.karma).toBeDefined();
-        expect(config.jshint).toBeDefined();
-        expect(config.jshint.options.jshintrc).toEqual('.jshintrcTest');
-
-        configurer.initConfig(config);
+        configurer.init(grunt, jshint);
 
         expect(grunt.config.get('jshint')).toBeDefined();
         expect(grunt.config.get('jshint').options.jshintrc).toEqual('.jshintrcTest');

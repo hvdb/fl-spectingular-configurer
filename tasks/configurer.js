@@ -4,16 +4,20 @@
     var fs = require('fs'),
         path = require('path'),
         Configurer = {},
-        grunt;
+        grunt,
+        configuration;
 
-    Configurer.init = function (_grunt) {
-        grunt = _grunt;
-        if (typeof grunt.registerTask !== 'function') {
+    /** Initialize the configurer, set the grunt object. */
+    Configurer.init = function (_grunt, options) {
+        if (typeof _grunt.registerTask !== 'function') {
             throw new Error('invalid grunt object');
         }
+        grunt = _grunt;
+        loadConfiguration(options);
     };
 
-    Configurer.configure = function (options) {
+    /** load the configuration from file system and/or use the options given. and initialize the config. */
+     function loadConfiguration(options) {
         var _options = options || {};
         var config = {};
         fs.readdirSync(__dirname + '/include').forEach(function (include) {
@@ -23,22 +27,9 @@
                 config[key] = _config;
             }
         });
-
-        return config;
-    };
-
-    Configurer.initConfig = function () {
-
-        var config = {};
-        for (var i = 0; i < arguments.length; i++) {
-            var _config = arguments[i];
-            Object.keys(_config).forEach(function (key) {
-                config[key] = _config[key];
-            });
-        }
-
+        configuration = config;
         grunt.initConfig(config);
-    };
+    }
 
     module.exports = Configurer;
 })();
