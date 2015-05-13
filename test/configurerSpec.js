@@ -34,7 +34,6 @@ describe('Configurer ', function () {
         var jshint = {
             jshint: {
                 jshintrc: '<%= config.paths.config %>/.jshintrc',
-                foo: 'bar baz'
 
             }
         };
@@ -51,6 +50,8 @@ describe('Configurer ', function () {
         expect(config.karma).toBeDefined();
         expect(config.jshint).toBeDefined();
         expect(config.jshint.options.jshintrc).toEqual('<%= config.paths.config %>/.jshintrc');
+
+        expect(config.jshint.options.foo).toEqual('bar baz');
 
         configurer.init(_config, config);
 
