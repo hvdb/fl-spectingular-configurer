@@ -1,8 +1,6 @@
 'use strict';
 
 var grunt = require('grunt');
-var path = require('path');
-var rewire = require("rewire");
 
 var configurer;
 /**
