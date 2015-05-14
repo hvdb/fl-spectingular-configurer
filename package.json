@@ -1,7 +1,7 @@
 {
   "name": "spectingular.configurer",
   "version": "0.0.16",
-  "description": "",
+  "description": "Configurer to handling config before grunt is started.",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/jasmine-node/bin/jasmine-node test/*Spec.js"
@@ -13,6 +13,6 @@
   "peerDependencies": {
     "grunt": "~0.4.5"
   },
-  "author": "",
+  "author": "FruitLoops",
   "license": "MIT"
 }

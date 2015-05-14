@@ -72,4 +72,15 @@ describe('Configurer ', function () {
 
     });
 
+    it('should register a set of tasks', function() {
+        var tasks = ['jshint','karma'];
+        configurer.registerTask('taskname', tasks);
+
+
+
+        //expect(grunt.tasks.get('taskname')).toBeDefined();
+
+    })
+
+
 });

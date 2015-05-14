@@ -6,11 +6,34 @@ Initialize the module with:
 require('spectingular-configurer')(grunt)
 ```
 
-You can also pass in the dirname in which it should look for config to include (grunt, dirname)
+You can override the directory in where it should search for the config.
+(it will search in 'dirname'/include)
+
+```javascript
+require('spectingular-configurer')(grunt, __dirname)
+```
 
 
-run test:
+How to use:
 
+require it.
+Add (if needed) extra config to configurer.configure().
+configurer.configure() will return a config object, you should pass that into the init method.
+
+configurer.init(config).
+You can also provide extra options: configurer.init(options, config)
+
+And to register a task:
+configurer.registerTasks(taskName,[tasks]);
+
+
+There are tests for the configurer, we use jasmine-node for making the tests.
+You can run the tests by doing:
 ```
 npm test
 ```
+
+
+note: __dirname is an alias of for the directory the file is currently executed. 
+if you execute Gruntfile.js from the root, __dirname will be the full path to the root. 
+So it searches for includes in the include folder of the root.
