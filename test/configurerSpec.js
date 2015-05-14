@@ -9,7 +9,7 @@ var configurer;
 describe('Configurer should ', function () {
 
     beforeEach(function () {
-        configurer = require('./../tasks/configurer')(grunt, __dirname);
+        configurer = require('./../configurer.js')(grunt, __dirname);
     });
 
     it('default config should be handled correctly', function () {

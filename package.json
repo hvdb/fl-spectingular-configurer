@@ -2,7 +2,7 @@
   "name": "spectingular-configurer",
   "version": "0.0.17",
   "description": "Configurer to handling config before grunt is started.",
-  "main": "index.js",
+  "main": "configurer.js",
   "scripts": {
     "test": "node_modules/jasmine-node/bin/jasmine-node test/*Spec.js"
   },
