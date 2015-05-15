@@ -23,6 +23,7 @@
 function Configurer(grunt, _dirname) {
     var fs = require('fs'),
         path = require('path'),
+        merge = require('merge'),
         configuration = {},
         dirname = _dirname || __dirname;
 
@@ -48,7 +49,18 @@ function Configurer(grunt, _dirname) {
             for (var i = 0; i < arguments.length; i++) {
                 var _config = arguments[i];
                 Object.keys(_config).forEach(function (key) {
-                    config[key] = _config[key];
+                    if(config[key]) {
+                        grunt.log.writeln('Config with key: ' +key + ' was already set trying to add the config to the existing config.');
+                        Object.keys(_config[key]).forEach(function (option) {
+                            if(!config[key][option]) {
+                                config[key][option] = _config[key][option];
+                            } else {
+                                grunt.log.error('The configuration with key '+ key + ' is going to override the existing config. This is not allowed. Bye.')
+                            }
+                        });
+                    } else {
+                        config[key] = _config[key];
+                    }
                 });
             }
             grunt.initConfig(config);

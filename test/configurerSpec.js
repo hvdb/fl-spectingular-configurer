@@ -2,7 +2,8 @@
 
 var grunt = require('grunt');
 
-var configurer;
+var configurer,
+    configurer2;
 /**
  * Test the configurer
  */
@@ -10,6 +11,7 @@ describe('Configurer should ', function () {
 
     beforeEach(function () {
         configurer = require('./../configurer.js')(grunt, __dirname);
+        configurer2 = require('./../configurer.js')(grunt, __dirname+'/config2');
     });
 
     it('default config should be handled correctly', function () {
@@ -68,6 +70,19 @@ describe('Configurer should ', function () {
         configurer.registerTask(taskName, tasks);
         expect(grunt.registerTask).toHaveBeenCalledWith(taskName, tasks);
         expect(grunt.registerTask.mostRecentCall.args).toContain(tasks);
-    })
+    });
 
+
+    it('should merge configuration objects when there are more given', function() {
+        var config1 = configurer.configure();
+        var config2 = configurer2.configure();
+
+        configurer.init(config1, config2);
+
+        expect(grunt.config.get('jshint').options.foo).toEqual('bar baz');
+        expect(grunt.config.get('copy').config1).toBeDefined();
+        expect(grunt.config.get('copy').config2).toBeDefined();
+
+
+    });
 });
