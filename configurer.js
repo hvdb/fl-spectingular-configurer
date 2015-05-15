@@ -23,7 +23,6 @@
 function Configurer(grunt, _dirname) {
     var fs = require('fs'),
         path = require('path'),
-        merge = require('merge'),
         configuration = {},
         dirname = _dirname || __dirname;
 
