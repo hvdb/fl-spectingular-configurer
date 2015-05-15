@@ -14,22 +14,22 @@ require('spectingular-configurer')(grunt, __dirname)
 ```
 
 ###How to use:
-
-
 You can add the options for the config to the configure() method. 
+
 ***configurer.configure() will return a config object, you should pass that into the init method.
 
 ****configurer.init(config).
+
 You can also provide extra options: configurer.init(options, config)
 
 And to register a task:
+
 ***configurer.registerTasks(taskName,[tasks]);
-
-
 
 ###Tests
 
 There are tests for the configurer, we use jasmine-node for making the tests.
+
 You can run the tests by doing:
 ```
 npm test
