@@ -43,18 +43,18 @@ function Configurer(grunt, _dirname) {
 
             return configuration;
         },
-        init: function() {
+        init: function () {
             var config = {};
             for (var i = 0; i < arguments.length; i++) {
                 var _config = arguments[i];
                 Object.keys(_config).forEach(function (key) {
-                    if(config[key]) {
-                        grunt.log.writeln('Config with key: ' +key + ' was already set trying to add the config to the existing config.');
+                    if (config[key]) {
+                        grunt.log.writeln('Config with key: ' + key + ' was already set trying to add the config options to the existing config.');
                         Object.keys(_config[key]).forEach(function (option) {
-                            if(!config[key][option]) {
-                                config[key][option] = _config[key][option];
+                            if (!config[key][option]) {
+                                config[key][option] = _config[key][option];                                
                             } else {
-                                grunt.fail.fatal('The configuration with key '+ key + ' is going to override the existing config. This is not allowed. Bye.')
+                                grunt.fail.fatal('The configuration with key ' + key + ' and option' + option + ' is going to override the existing config.' + config[key][option] + ' This is not allowed. Bye.')
                             }
                         });
                     } else {
@@ -64,7 +64,7 @@ function Configurer(grunt, _dirname) {
             }
             grunt.initConfig(config);
         },
-        registerTask: function(taskName, tasks) {
+        registerTask: function (taskName, tasks) {
             grunt.registerTask(taskName, tasks);
         }
     }

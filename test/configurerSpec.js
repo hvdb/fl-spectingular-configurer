@@ -3,7 +3,8 @@
 var grunt = require('grunt');
 
 var configurer,
-    configurer2;
+    configurer2,
+    configurer3;
 /**
  * Test the configurer
  */
@@ -11,7 +12,8 @@ describe('Configurer should ', function () {
 
     beforeEach(function () {
         configurer = require('./../configurer.js')(grunt, __dirname);
-        configurer2 = require('./../configurer.js')(grunt, __dirname+'/config2');
+        configurer2 = require('./../configurer.js')(grunt, __dirname + '/config2');
+        configurer3 = require('./../configurer.js')(grunt, __dirname + '/config3');
     });
 
     it('default config should be handled correctly', function () {
@@ -72,17 +74,21 @@ describe('Configurer should ', function () {
         expect(grunt.registerTask.mostRecentCall.args).toContain(tasks);
     });
 
-
-    it('should merge configuration objects when there are more given', function() {
+    it('should merge configuration objects when there are more given', function () {
         var config1 = configurer.configure();
         var config2 = configurer2.configure();
-
         configurer.init(config1, config2);
-
         expect(grunt.config.get('jshint').options.foo).toEqual('bar baz');
         expect(grunt.config.get('copy').config1).toBeDefined();
         expect(grunt.config.get('copy').config2).toBeDefined();
-
-
     });
+
+    it('should fail because the config is the same and merging is not allowed', function () {
+        spyOn(grunt.fail, 'fatal');
+        var config2 = configurer2.configure();
+        var config3 = configurer3.configure();
+        configurer.init(config2, config3);
+        expect(grunt.fail.fatal).toHaveBeenCalled();
+    });
+
 });
