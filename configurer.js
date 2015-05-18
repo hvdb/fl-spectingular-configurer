@@ -54,7 +54,7 @@ function Configurer(grunt, _dirname) {
                             if (!config[key][option]) {
                                 config[key][option] = _config[key][option];                                
                             } else {
-                                grunt.fail.fatal('The configuration with key ' + key + ' and option' + option + ' is going to override the existing config.' + config[key][option] + ' This is not allowed. Bye.')
+                                grunt.fail.fatal('The configuration with key ' + key + ' and option' + option + ' is going to override the existing config. This is not allowed, override the existing config with options instead. Bye.')
                             }
                         });
                     } else {
