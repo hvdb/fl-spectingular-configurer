@@ -37,6 +37,8 @@ And to register a task:
 
 ###Tests
 
+
+
 There are tests for the configurer, we use jasmine-node for making the tests.  
 You can run the tests by doing:
 ```
