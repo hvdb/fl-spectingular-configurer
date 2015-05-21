@@ -1,6 +1,6 @@
 {
   "name": "spectingular-configurer",
-  "version": "0.0.43",
+  "version": "0.0.44",
   "description": "Configurer to handling config before grunt is started.",
   "main": "configurer.js",
   "scripts": {
