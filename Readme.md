@@ -40,12 +40,10 @@ clean
 You can override these configs by passing in the config in the init function. If not provide it will use the defaults.  
 See include/'configName' for the defaults.
 
-
-
 ###Tests
 
 There are tests for the configurer, we use jasmine-node for making the tests.  
 You can run the tests by doing:
-```
+```javascript
 npm test
 ```

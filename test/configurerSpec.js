@@ -16,9 +16,6 @@ describe('Configurer should ', function () {
         configurer3 = require('./../configurer.js')(grunt, __dirname + '/config3');
     });
 
-
-
-
     it('default config should be handled correctly', function () {
         var config = configurer.configure();
         configurer.init(config);
@@ -83,10 +80,7 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('bower-install-simple')).toBeDefined();
         expect(grunt.config.get('bower-install-simple').update.options.directory).toEqual('../../bower');
         expect(grunt.config.get('bower-install-simple').update.options.cwd).toEqual('werkDir');
-
-    })
-
-
+    });
 
     it('load default config from file', function () {
         var config = configurer.configure();
@@ -99,8 +93,6 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('jshint')).toBeDefined();
         expect(grunt.config.get('jshint').options.jshintrc).toEqual('.jshintrc');
         expect(grunt.config.get('karma')).toBeDefined();
-
-
     });
 
     it('exception on config loaded from file should be reflected in the configuration', function () {
