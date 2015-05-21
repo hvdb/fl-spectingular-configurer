@@ -63,9 +63,6 @@ function Configurer(grunt, _dirname) {
                 });
             }
             grunt.initConfig(config);
-        },
-        registerTask: function (taskName, tasks) {
-            grunt.registerTask(taskName, tasks);
         }
     }
 
