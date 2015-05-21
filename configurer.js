@@ -13,11 +13,10 @@
  *
  * init: This will get all config and add it to grunt so that you can use it in your grunt process.
  *
- * registerTask: Register a list of tasks with the given taskname to grunt.
  *
  * @param grunt
  * @param _dirname
- * @returns {{configure: Function, init: Function, registerTask: Function}}
+ * @returns {{configure: Function, init: Function}}
  * @constructor
  */
 function Configurer(grunt, _dirname) {
