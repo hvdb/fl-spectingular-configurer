@@ -12,7 +12,6 @@ You can pass in the option in the configurer() method.
 
 ####How to use it:
 
-
 Initialize the module with:  
 ```javascript
 var configurer = require('spectingular-configurer')(grunt);
