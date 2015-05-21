@@ -32,7 +32,7 @@ describe('Configurer should ', function () {
     it('exceptions on the default config should reflect to the grunt config', function () {
         var jshint = {
             jshint: {
-                jshintrc: '<%= config.paths.config %>/.jshintrc',
+                jshintrc: '<%= config.paths.config %>/.jshintrc'
 
             }
         };
