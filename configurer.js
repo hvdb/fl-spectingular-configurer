@@ -52,7 +52,7 @@ function Configurer(grunt, _dirname) {
                         grunt.log.writeln('Config with key: ' + key + ' was already set trying to add the config options to the existing config.');
                         Object.keys(_config[key]).forEach(function (option) {
                             if (!config[key][option]) {
-                                config[key][option] = _config[key][option];                                
+                                config[key][option] = _config[key][option];
                             } else {
                                 grunt.fail.fatal('The configuration with key ' + key + ' and option' + option + ' is going to override a previous config with the same key:value. This is not allowed, override the existing config with options instead. Bye.')
                             }
@@ -62,10 +62,21 @@ function Configurer(grunt, _dirname) {
                     }
                 });
             }
+            config = addDefaultConfig(config);
             grunt.initConfig(config);
         }
     }
 
+    function addDefaultConfig(config) {
+        var defaultConfigs = ['paths', 'bower-install-simple', 'clean'];
+        defaultConfigs.forEach(function (value) {
+            if (!config[value]) {
+                config[value] = require(path.resolve(__dirname, 'include', value))(grunt)
+            }
+        });
+        return config;
+    }
 }
+
 
 module.exports = Configurer;

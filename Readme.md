@@ -32,12 +32,17 @@ It loads all configuration from __dirname/include and then gives back the config
 **configurer.configure()** will return a config object, you should pass that into the init method.  
 **configurer.init(config)** will load and concat all of the config and then pass to the initConfig function of Grunt. You can pass in as many as config objects you have.
 
-And to register a task:  
-**configurer.registerTasks(taskName,[tasks])**; taskName: Name of the task. [tasks] array of tasks.
+There are 3 default configs added.  
+bower-install-simple  
+paths  
+clean  
+
+You can override these configs by passing in the config in the init function. If not provide it will use the defaults.  
+See include/'configName' for the defaults.
+
+
 
 ###Tests
-
-
 
 There are tests for the configurer, we use jasmine-node for making the tests.  
 You can run the tests by doing:
