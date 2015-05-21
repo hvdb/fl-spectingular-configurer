@@ -65,15 +65,6 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('karma')).toBeDefined();
     });
 
-    it('should register a set of tasks', function () {
-        spyOn(grunt, 'registerTask');
-        var tasks = ['jshint', 'karma'];
-        var taskName = 'taskname';
-        configurer.registerTask(taskName, tasks);
-        expect(grunt.registerTask).toHaveBeenCalledWith(taskName, tasks);
-        expect(grunt.registerTask.mostRecentCall.args).toContain(tasks);
-    });
-
     it('should merge configuration objects when there are more given', function () {
         var config1 = configurer.configure();
         var config2 = configurer2.configure();
