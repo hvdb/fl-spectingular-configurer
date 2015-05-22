@@ -1,10 +1,10 @@
 'use strict';
 
-var grunt = require('grunt');
-
-var configurer,
+var grunt = require('grunt'),
+    configurer,
     configurer2,
     configurer3;
+
 /**
  * Test the configurer
  */
@@ -42,7 +42,7 @@ describe('Configurer should ', function () {
             clean: {
                 files: ['tijdelijk']
             }
-        }
+        };
 
         var pathsConfig = {
             paths: {
@@ -52,7 +52,7 @@ describe('Configurer should ', function () {
                 nolio: 'nolio',
                 bowerComponentsDirectory: 'bower'
             }
-        }
+        };
 
         var bowerConfig = {
             'bower-install-simple': {
@@ -64,7 +64,7 @@ describe('Configurer should ', function () {
                     }
                 }
             }
-        }
+        };
 
         configurer.init(config, cleanConfig, pathsConfig, bowerConfig);
         expect(grunt.config.get('clean')).toBeDefined();
