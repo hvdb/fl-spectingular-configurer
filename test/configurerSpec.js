@@ -1,6 +1,7 @@
 'use strict';
 
 var grunt = require('grunt'),
+    _base = require('path').resolve(),
     configurer,
     configurer2,
     configurer3;
@@ -23,15 +24,15 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('clean').files[0]).toBe(grunt.config.get('paths').tmp);
 
         expect(grunt.config.get('paths')).toBeDefined();
-        expect(grunt.config.get('paths').base).toBe('/Users/hvdb/Documents/werk/stash/spectingular-configurer');
+        expect(grunt.config.get('paths').base).toBe(_base);
         expect(grunt.config.get('paths').cwd).toBe('.tmp/build');
         expect(grunt.config.get('paths').tmp).toBe('.tmp');
         expect(grunt.config.get('paths').dist).toBe('.tmp/build/dist');
         expect(grunt.config.get('paths').nolio).toBe('.tmp/build/nolio');
-        expect(grunt.config.get('paths').bowerComponentsDirectory).toBe('bower_components');
+        expect(grunt.config.get('paths').bowerComponentsDirectory).toBe(_base + '/bower_components');
 
         expect(grunt.config.get('bower-install-simple')).toBeDefined();
-        expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual('../../bower_components');
+        expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual(_base + '/bower_components');
         expect(grunt.config.get('bower-install-simple').install.options.cwd).toEqual('.tmp/build');
 
     });
