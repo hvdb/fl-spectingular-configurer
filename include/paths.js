@@ -4,8 +4,9 @@
  * Paths configuration.
  * */
 module.exports = function (grunt) {
-    var basePath = require('path').resolve(),
-        bowerRcPath = basePath + '/.bowerrc',
+    var path = require('path'),
+        basePath = path.resolve(),
+        bowerRcPath = path.resolve('.bowerrc'),
         tmp = '.tmp',
         cwd = tmp + '/build';
         
@@ -15,7 +16,7 @@ module.exports = function (grunt) {
         cwd: cwd,
         nolio: cwd + '/nolio',
         dist: cwd + '/dist',
-        bowerComponentsDirectory: grunt.file.exists(bowerRcPath) && grunt.file.readJSON(bowerRcPath).directory ? grunt.file.readJSON(bowerRcPath).directory : 'bower_components'
+        bowerComponentsDirectory: grunt.file.exists(bowerRcPath) ? grunt.file.readJSON(bowerRcPath).directory : 'bower_components'
     
     };
 };
