@@ -27,7 +27,8 @@ function Configurer(grunt, _dirname) {
 
     var parentcwd = process.cwd();
         process.chdir(__dirname);
-        require('load-grunt-tasks')(grunt);
+        grunt.loadNpmTasks('grunt-bower-install-simple');
+        grunt.loadNpmTasks('grunt-contrib-clean');
         process.chdir(parentcwd);
 
 
