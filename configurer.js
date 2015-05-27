@@ -25,12 +25,6 @@ function Configurer(grunt, _dirname) {
         configuration = {},
         dirname = _dirname || __dirname;
 
-    var parentcwd = process.cwd();
-        process.chdir(__dirname);
-        require('load-grunt-tasks')(grunt);
-        process.chdir(parentcwd);
-
-
     if (typeof grunt.registerTask !== 'function') {
         throw new Error('invalid grunt object');
     }
