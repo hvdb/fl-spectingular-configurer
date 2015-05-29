@@ -33,7 +33,6 @@ describe('Configurer should ', function () {
 
         expect(grunt.config.get('bower-install-simple')).toBeDefined();
         expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual(_base + '/bower_components');
-        expect(grunt.config.get('bower-install-simple').install.options.cwd).toEqual('.tmp/build');
 
     });
 
@@ -60,8 +59,7 @@ describe('Configurer should ', function () {
                 update: {
                     options: {
                         color: true,
-                        directory: "../../<%= paths.bowerComponentsDirectory %>",
-                        cwd: "<%= paths.cwd %>"
+                        directory: "../../<%= paths.bowerComponentsDirectory %>"
                     }
                 }
             }
@@ -80,7 +78,7 @@ describe('Configurer should ', function () {
 
         expect(grunt.config.get('bower-install-simple')).toBeDefined();
         expect(grunt.config.get('bower-install-simple').update.options.directory).toEqual('../../bower');
-        expect(grunt.config.get('bower-install-simple').update.options.cwd).toEqual('werkDir');
+
     });
 
     it('load default config from file', function () {

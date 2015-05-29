@@ -6,8 +6,7 @@ module.exports = function () {
 		install: {
 			options: {
 				color: true,
-				directory: '<%= paths.bowerComponentsDirectory %>',
-				cwd: '<%= paths.cwd %>'
+				directory: '<%= paths.bowerComponentsDirectory %>'
 			}
 		}
     };
