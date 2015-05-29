@@ -31,8 +31,13 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('paths').nolio).toBe('.tmp/build/nolio');
         expect(grunt.config.get('paths').bowerComponentsDirectory).toBe(_base + '/bower_components');
 
+	var path = require('path');
+
+console.log('dd '+grunt.config.get('paths').base +'/' +grunt.config.get('bower-install-simple').install.options.cwd);
+    
         expect(grunt.config.get('bower-install-simple')).toBeDefined();
-        expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual('bower_components');
+        expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual(path.relative(grunt.config.get('paths').base + "/" +grunt.config.get('paths').cwd, grunt.config.get('paths').bowerComponentsDirectory));
+
 
     });
 
