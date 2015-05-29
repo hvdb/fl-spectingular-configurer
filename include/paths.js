@@ -16,6 +16,7 @@ module.exports = function (grunt) {
         cwd: cwd,
         nolio: cwd + '/nolio',
         dist: cwd + '/dist',
-        bowerComponentsDirectory: path.resolve(basePath, grunt.file.exists(bowerRcPath) ? grunt.file.readJSON(bowerRcPath).directory : 'bower_components')
+        bowerComponentsDirectory: path.resolve(basePath, grunt.file.exists(bowerRcPath) ? grunt.file.readJSON(bowerRcPath).directory : 'bower_components'),
+        bowerComponentsDirectoryName: grunt.file.exists(bowerRcPath) ? grunt.file.readJSON(bowerRcPath).directory : 'bower_components'
     };
 };

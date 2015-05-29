@@ -6,7 +6,7 @@ module.exports = function () {
 		install: {
 			options: {
 				color: true,
-				directory: '<%= paths.bowerComponentsDirectory %>',
+				directory: '<%= paths.bowerComponentsDirectoryName %>',
 				command: "update"
 			}
 		}

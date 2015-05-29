@@ -32,7 +32,7 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('paths').bowerComponentsDirectory).toBe(_base + '/bower_components');
 
         expect(grunt.config.get('bower-install-simple')).toBeDefined();
-        expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual(_base + '/bower_components');
+        expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual('bower_components');
 
     });
 
