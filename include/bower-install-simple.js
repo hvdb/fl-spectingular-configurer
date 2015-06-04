@@ -1,16 +1,13 @@
 'use strict';
 
 /** bower configuration. */
-module.exports = function (grunt) {
-	var path = require('path');
-	
-	
+module.exports = function () {
     return {
 		install: {
 			options: {
 				color: true,
 				directory: '<%= paths.relativeBowerComponentsDirectory %>',
-				command: "update",
+				command: 'update',
 				cwd: '<%= paths.cwd %>'
 			}
 		}

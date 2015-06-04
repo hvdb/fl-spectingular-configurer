@@ -4,11 +4,17 @@
   "description": "Configurer to handling config before grunt is started.",
   "main": "configurer.js",
   "scripts": {
-    "test": "node_modules/jasmine-node/bin/jasmine-node test/*Spec.js"
+    "jshint": "node_modules/.bin/jshint include test configurer.js",
+    "analyze-coverage": "node_modules/istanbul/lib/cli.js cover node_modules/jasmine-node/bin/jasmine-node test/*Spec.js",
+    "check-coverage": "node_modules/istanbul/lib/cli.js check-coverage --branch 10 --statements 10 --functions 10 --lines 10",
+    "cobertura-report": "node_modules/istanbul/lib/cli.js report cobertura",
+    "test": "npm run-script jshint && npm run-script analyze-coverage && npm run-script check-coverage && npm run-script cobertura-report"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "jasmine-node": "^1.14.5"
+    "jasmine-node": "^1.14.5",
+    "istanbul": "~0.3.13",
+    "jshint": "2.5.0"
   },
   "dependencies": {
     "load-grunt-tasks": "^3.1.0",
