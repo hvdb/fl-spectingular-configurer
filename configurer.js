@@ -42,19 +42,25 @@ function Configurer(grunt, _dirname) {
         },
         init: function () {
             var config = {};
+            var defaultConfig = {};
+
             for (var i = 0; i < arguments.length; i++) {
                 config = handleConfig(arguments[i], config);
             }
-            config = addDefaultConfig(config);
+
+            defaultConfig = loadConfigFromFileSystem(__dirname, {});
+            config = handleConfig(defaultConfig, config, true);
             grunt.initConfig(config);
         }
     };
 
     /** 
-     * Handle the config. 
-     * _config the config the handle
-     * config: The current config
-     * defaultConfig: boolean indicating if it is default config or not.
+     * @description Handle the config.
+     *
+     * @param _config {Object} The config the handle
+     * @param config {Object} The current config
+     * @param defaultConfig {Boolean} Indicates if default config or not.
+     * @return {Object} The combined configuration
      */
     function handleConfig(_config, config, defaultConfig) {
         Object.keys(_config).forEach(function (key) {
@@ -77,15 +83,11 @@ function Configurer(grunt, _dirname) {
     }
 
     /**
-     * Add the default config to the config. Everything from the local include folder will be added to the config if they don't exist.
-     */
-    function addDefaultConfig(config) {
-        var defaultConfigs = loadConfigFromFileSystem(__dirname, {});
-        return handleConfig(defaultConfigs, config, true);
-    }
-
-    /**
-     * Load the configuration from the given directory and use the options provided
+     * @description Load the configuration from the given directory and use the options provided
+     *
+     * @param dirname {String} The include folder path
+     * @param _options {Object}
+     * @return {Object} The configuration
      */
     function loadConfigFromFileSystem(dirname, _options) {
         var configuration = {};

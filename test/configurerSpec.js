@@ -9,7 +9,7 @@ var grunt = require('grunt'),
 /**
  * Test the configurer
  */
-describe('Configurer should ', function () {
+describe('Configurer', function () {
 
     beforeEach(function () {
         configurer = require('./../configurer.js')(grunt, __dirname);
@@ -17,8 +17,10 @@ describe('Configurer should ', function () {
         configurer3 = require('./../configurer.js')(grunt, __dirname + '/config3');
     });
 
-    it('default config should be handled correctly', function () {
+    it('should handle default configuration correctly', function () {
         var config = configurer.configure();
+        var path = require('path');
+
         configurer.init(config);
         expect(grunt.config.get('clean')).toBeDefined();
         expect(grunt.config.get('clean').files[0]).toBe(grunt.config.get('paths').tmp);
@@ -31,9 +33,8 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('paths').nolio).toBe('.tmp/build/nolio');
         expect(grunt.config.get('paths').bowerComponentsDirectory).toBe(_base + '/bower_components');
 
-	var path = require('path');
         expect(grunt.config.get('bower-install-simple')).toBeDefined();
-        expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual(path.relative(grunt.config.get('paths').base + '/' +grunt.config.get('paths').cwd, grunt.config.get('paths').bowerComponentsDirectory));
+        expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual(path.relative(grunt.config.get('paths').base, grunt.config.get('paths').bowerComponentsDirectory));
 
 
     });
@@ -83,7 +84,7 @@ describe('Configurer should ', function () {
 
     });
 
-    it('load default config from file', function () {
+    it('should load default config from file', function () {
         var config = configurer.configure();
         expect(config.notLoaded).toBeUndefined();
         expect(config.karma).toBeDefined();
@@ -96,7 +97,7 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('karma')).toBeDefined();
     });
 
-    it('exception on config loaded from file should be reflected in the configuration', function () {
+    it('should reflect in the configuration an exception on loading config from a file', function () {
         var jshint = {
             jshint: {
                 jshintrc: '<%= config.paths.config %>/.jshintrc'
@@ -124,7 +125,7 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('karma')).toBeDefined();
     });
 
-    it('default config should be handled correctly even less verbose', function () {
+    it('should handle default config correctly even less verbose', function () {
         var config = configurer.configure();
         configurer.init(config);
         expect(grunt.config.get('jshint')).toBeDefined();
@@ -141,7 +142,7 @@ describe('Configurer should ', function () {
         expect(grunt.config.get('copy').config2).toBeDefined();
     });
 
-    it('should fail because the config is the same and merging is not allowed', function () {
+    it('should fail when initializing the configurer with more identical configurations', function () {
         spyOn(grunt.fail, 'fatal');
         var config2 = configurer2.configure();
         var config3 = configurer3.configure();
