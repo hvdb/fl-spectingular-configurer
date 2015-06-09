@@ -18,6 +18,6 @@ module.exports = function (grunt) {
         nolio: cwd + '/nolio',
         dist: cwd + '/dist',
         bowerComponentsDirectory: bowerComponentsDirectory,
-        relativeBowerComponentsDirectory: path.relative(path.resolve(basePath, cwd), bowerComponentsDirectory)
+        relativeBowerComponentsDirectory: path.relative(path.resolve(basePath), bowerComponentsDirectory)
     };
 };
