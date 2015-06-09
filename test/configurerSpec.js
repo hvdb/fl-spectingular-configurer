@@ -22,6 +22,7 @@ describe('Configurer should ', function () {
         configurer.init(config);
         expect(grunt.config.get('clean')).toBeDefined();
         expect(grunt.config.get('clean').files[0]).toBe(grunt.config.get('paths').tmp);
+        expect(grunt.config.get('clean').files[1]).toBe(grunt.config.get('paths').bowerComponentsDirectory);
 
         expect(grunt.config.get('paths')).toBeDefined();
         expect(grunt.config.get('paths').base).toBe(_base);

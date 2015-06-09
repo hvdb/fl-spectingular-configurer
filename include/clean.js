@@ -3,6 +3,6 @@
 /** Clean configuration. */
 module.exports = function () {
     return {
-        files: ['<%= paths.tmp %>']
+        files: ['<%= paths.tmp %>', '<%= paths.bowerComponentsDirectory %>']
     };
 };
