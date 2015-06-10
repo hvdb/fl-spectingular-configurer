@@ -93,7 +93,7 @@ function Configurer(grunt, _dirname) {
         var configuration = {};
         fs.readdirSync(dirname + '/include').forEach(function (include) {
             var key = include.substring(0, include.lastIndexOf('.')),
-                _config = require(path.resolve(dirname, 'include', include))(grunt, _options[key]);
+                _config = require(path.resolve(dirname, 'include', include))(grunt, _options);
             if (typeof _config === 'object') {
                 configuration[key] = _config;
             }

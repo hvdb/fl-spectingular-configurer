@@ -35,8 +35,6 @@ describe('Configurer', function () {
 
         expect(grunt.config.get('bower-install-simple')).toBeDefined();
         expect(grunt.config.get('bower-install-simple').install.options.directory).toEqual(path.relative(grunt.config.get('paths').base, grunt.config.get('paths').bowerComponentsDirectory));
-
-
     });
 
     it('should be able to configure a different paths configuration', function () {
