@@ -5,12 +5,12 @@
 Grunt does not handle dynamic task-configuration very well.   
 And in grunt you oftern repeat yourself in term of configuration, and your gruntfiles become huge.
 
-This npm-module gives you  
+This npm-module gives you  **
 1. the ability to split grunt configuration into separate files  
 2. sensible defaults for commonly used tasks  
 3. the option to override most defaults  
 4. a way of initializing grunt with the ready-made configuration  
-
+**
   
 All to make sure all configuration is correct before grunt is started.
 
