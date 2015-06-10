@@ -7,8 +7,7 @@ module.exports = function () {
 			options: {
 				color: true,
 				directory: '<%= paths.relativeBowerComponentsDirectory %>',
-				command: 'update',
-				cwd: '<%= paths.cwd %>'
+				cwd: '<%= paths.base %>'
 			}
 		}
     };
