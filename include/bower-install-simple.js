@@ -1,7 +1,7 @@
 'use strict';
 
 /** bower configuration. */
-module.exports = function (grunt) {
+module.exports = function () {
     return {
 		install: {
 			options: {

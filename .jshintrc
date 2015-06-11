@@ -1,0 +1,38 @@
+{
+    "node": false,
+    "browser": true,
+    "es5": false,
+    "esnext": true,
+    "bitwise": true,
+    "camelcase": false,
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "latedef": false,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": "single", // new check
+    "regexp": true,
+    "undef": true,
+    "unused": true, // new check
+    "strict": true, // new check
+    "asi": true,
+    "trailing": true,
+    "smarttabs": true,
+    "globalstrict": true,
+    "globals": {
+        "angular": false,
+        "$": false,
+        "ingGlobal": true,
+        "module" : true,
+        "require" : true,
+        "__dirname": true,
+        "process":true,
+        "describe":true,
+        "it": true,
+        "spyOn" : true,
+        "expect": true,
+        "beforeEach":true
+        
+    }
+}
