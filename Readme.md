@@ -25,7 +25,8 @@ As extentions of this module, also look at
 ##Installing:
 Add it to your package.json dependencies section like this:  "spectingular-configurer": "~0.1.1",
 
-Require the module with (the grunt parameter should be the gunt-instance that you require in your gruntfile):  
+Require the module with (the grunt parameter should be the gunt-instance that you require in your gruntfile):
+
 ```
 var configurer = require('spectingular-configurer')(grunt);
 ```
