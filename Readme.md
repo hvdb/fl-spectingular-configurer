@@ -31,9 +31,10 @@ var configurer = require('spectingular-configurer')(grunt);
 ```
 
 By default it loads the configuration from "path_where_you_execute_configurer"/include. 
+
 You can override the directory in where it operates like this:
 
-```javascript
+```
 var configurer = require('spectingular-configurer')(grunt, __dirname)
 ```
 
@@ -51,8 +52,9 @@ By default this modules searches for configuration files in "path_where_you_exec
 In this folder you should put configuration files, where the name of the file is the key of the grunt-config you need.
 So if you need a grunt.copy config you add a file named "copy.js". See also the default configuration files for examples.
 
-You can get the config you need by running the method configure();
-```javascript
+You can get the config you need by running the method configure();   
+
+```
 configurer.configure()
 ```
 
@@ -75,7 +77,9 @@ At this point the default configuration of this configurer can not be overwritte
 ###Initialize grunt
 
 **configurer.configure()** will return a config object, you should pass that into the init method.  
-**configurer.init(config, config1, configN)** will load and concat all of the config and then pass to the initConfig function of Grunt. You can pass in as many as config objects you have.
+**configurer.init(config, config1, configN)** will load and concat all of the config and then pass to the initConfig function of Grunt.   
+
+You can pass in as many as config objects you have.
 
 There are 3 default configs added.  
 bower-install-simple  
@@ -86,7 +90,7 @@ clean
 
 There are tests for the configurer, we use jasmine-node for making the tests.  
 You can run the tests by doing:
-```javascript
+```
 npm test
 ```
 
