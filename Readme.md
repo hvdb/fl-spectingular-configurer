@@ -3,7 +3,7 @@
 ##What does it do?
 
 Grunt does not handle dynamic task-configuration very well.   
-And in grunt you oftern repeat yourself in term of configuration, and your gruntfiles become huge.
+And in grunt you often repeat yourself in term of configuration, and your gruntfiles become huge.
 
 This npm-module gives you  
   
@@ -18,12 +18,12 @@ This npm-module gives you
 All to make sure all configuration is correct before grunt is started.
 
 As extentions of this module, also look at  
-*spectingular-portal-package-configurer*: This configurer gives you all the default config for packaging your project  
-*specintingular-portal-release-configurer* This configurer gives you all the configuration to release you project to nexus
+* [spectingular-portal-package-configurer](https://stash.europe.intranet/projects/FL/repos/spectingular-portal-package-configurer/browse)*: This configurer gives you all the default config for packaging your project  
+* [specintingular-portal-release-configurer](https://stash.europe.intranet/projects/FL/repos/spectingular-portal-release-configurer/browse)* This configurer gives you all the configuration to release you project to nexus
 
 
 ##Installing:
-As this is a npm module, add it to your package.json dependencies section like this:  "spectingular-configurer": "~0.1.1",
+Add it to your package.json dependencies section like this:  "spectingular-configurer": "~0.1.1",
 
 Require the module with (the grunt parameter should be the gunt-instance that you require in your gruntfile):  
 ```javascript
@@ -57,15 +57,20 @@ configurer.configure()
 ```
 
 ####Default configuration
-The configurer also has some default configuration of itself.
-It sets basic paths and a grunt-clean configuration. 
+The configurer also has some default configuration of itself:
+
+bower-install-simple
+paths  : sets up paths for tmp / dist / nolio directories
+clean  : clean task config for tmp and bower
+
 
 
 ####Overriding options
 The configurer does not merge configurations. 
 If you want to override some configuration settings there should be an option for that build in.
   
-You can pass in the overrides into the configurer() method as the 'option' argument.
+You can pass in the overrides into the configurer() method as the 'option' argument.  
+At this point the default configuration of this configurer can not be overwritten
 
 ###Initialize grunt
 
