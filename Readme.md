@@ -3,7 +3,7 @@
 ##What does it do?
 
 Grunt does not handle dynamic task-configuration very well.   
-And in grunt you often repeat yourself in term of configuration, and your gruntfiles become huge.
+Furthermore, in grunt you often repeat yourself in terms of configuration, which causes your grunt files to become huge.
 
 This npm-module gives you  
   
@@ -23,7 +23,7 @@ As extentions of this module, also look at
 
 
 ##Installing:
-Add it to your package.json dependencies section like this:  "spectingular-configurer": "~0.1.1",
+Add it to your package.json dependencies section like this:  "spectingular-configurer": "~0.1.4",
 
 Require the module with (the grunt parameter should be the gunt-instance that you require in your gruntfile):
 
@@ -39,7 +39,7 @@ You can override the directory in where it operates like this:
 var configurer = require('spectingular-configurer')(grunt, __dirname)
 ```
 
-It will then search for a include directory in that path to load the configuration files.
+It will then search for an include directory in that path to load the configuration files.
 
 *note* __dirname is a [node variable](https://nodejs.org/api/globals.html#globals_dirname) and reflects to the full path in which the task is executed.
 
@@ -48,7 +48,7 @@ It will then search for a include directory in that path to load the configurati
 ###Get your config
 
 ####Intro
-By default this modules searches for configuration files in "path_where_you_execute_configurer"/include. 
+By default this module searches for configuration files in "path_where_you_execute_configurer"/include.
 
 In this folder you should put configuration files, where the name of the file is the key of the grunt-config you need.
 So if you need a grunt.copy config you add a file named "copy.js". See also the default configuration files for examples.
@@ -72,7 +72,7 @@ clean  : clean task config for tmp and bower
 The configurer does not merge configurations. 
 If you want to override some configuration settings there should be an option for that build in.
   
-You can pass in the overrides into the configurer() method as the 'option' argument.  
+You can pass in the overrides into the configurer() method as the 'options' argument.
 At this point the default configuration of this configurer can not be overwritten
 
 ###Initialize grunt
@@ -80,7 +80,7 @@ At this point the default configuration of this configurer can not be overwritte
 **configurer.configure()** will return a config object, you should pass that into the init method.  
 **configurer.init(config, config1, configN)** will load and concat all of the config and then pass to the initConfig function of Grunt.   
 
-You can pass in as many as config objects you have.
+You can pass in as many config objects as you want.
 
 There are 3 default configs added.  
 bower-install-simple  
@@ -89,8 +89,8 @@ clean
 
 ##Tests
 
-There are tests for the configurer, we use jasmine-node for making the tests.  
-You can run the tests by doing:
+There are tests for the configurer, for which we use jasmine-node.
+You can run the tests using the command:
 ```
 npm test
 ```
