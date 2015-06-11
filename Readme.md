@@ -32,9 +32,9 @@ var configurer = require('spectingular-configurer')(grunt);
 
 By default it loads the configuration from "path_where_you_execute_configurer"/include. 
 
-You can override the directory in where it operates like this:
+You can override the directory in where it operates like this:  
 
-```
+``` 
 var configurer = require('spectingular-configurer')(grunt, __dirname)
 ```
 
